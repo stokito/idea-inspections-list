@@ -1,0 +1,42 @@
+<idea-plugin version="2">
+    <name>Idea inspections list</name>
+    <description>short description of the plugin</description>
+    <version>1.0</version>
+    <vendor>stokito@gmail.com</vendor>
+    <idea-version since-build="8000"/>
+
+    <project-components>
+        <!-- Add your project components here -->
+    </project-components>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <application-components>
+        <component>
+            <!-- Component's implementation class -->
+            <implementation-class>com.blogspot.stokito.IdeaInspectionsList.IdeaInspectionsList</implementation-class>
+            <!-- Component's interface class -->
+            <interface-class>com.blogspot.stokito.IdeaInspectionsList.IdeaInspectionsList</interface-class>
+        </component>
+    </application-components>
+
+    <!-- Component's actions -->
+    <actions>
+        <!-- We use "PluginName.ComponentName.ActionName" notation for "id" to avoid conflicts -->
+        <action id="Actions.IdeaInspectionsList.ShowInspections" class="com.blogspot.stokito.IdeaInspectionsList.ShowInspections"
+                text="Show Inspections" description="">
+            <keyboard-shortcut first-keystroke="control alt G" second-keystroke="C" keymap="$default"/>
+            <mouse-shortcut keystroke="ctrl alt button2" keymap="$default"/>
+        </action>
+
+        <group id="Actions.IdeaInspectionsList" text="Sample _Menu" description="Sample group">
+            <reference ref="Actions.IdeaInspectionsList.ShowInspections"/>
+            <!--adds this group to the main menu-->
+            <add-to-group group-id="MainMenu" anchor="last"/>
+            <!--adds this group to the main toolbar before the Help action-->
+            <add-to-group group-id="MainToolBar" anchor="before" relative-to-action="HelpTopics"/>
+        </group>
+    </actions>
+</idea-plugin>
